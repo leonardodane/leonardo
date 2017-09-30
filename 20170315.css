@@ -1,0 +1,137 @@
+html {
+  background: url(iscrizione.png) no-repeat center center fixed;
+    -webkit-background-size:cover;
+    -moz-background-size: cover;
+    background-size: cover;
+  }
+  
+p  {
+    font-family: Arial;
+    font-size: 14px;
+    }
+    
+  table ,th, td {
+  	color: white;
+  }
+
+  #Inserimento_Dati {
+  text-align: center;
+  opacity: 0.8;
+  font: Bold 30px Arial;
+  color: #ffffff;
+  position:absolute;
+  top: 25px;
+  left: 23%;
+  height: 6%;
+  width: 54%;
+  padding: 10px;
+  background-color: #3040EF;
+  overflow: auto;
+  }
+
+#Inserimento_Dati2 {
+  text-align: center;
+  opacity: 0.8;
+  font: Bold 25px Arial;
+  color: #ffffff;
+  position:absolute;
+  top: 15%;
+  left: 4%;
+  height: 9%;
+  width: 28%;
+  padding: 10px;
+  background-color: #7C86F4;
+  overflow: auto;
+  }
+
+#Inserimento_Dati3 { 
+  text-align: center;
+  opacity: 0.8;
+  font: Bold 17px Arial;
+  color: #ffffff;
+  position:absolute;
+  top: 29%;
+  left: 4%;
+  height: 59%;
+  width: 28%;
+  padding: 10px;
+  background-color: #7C86F4;
+  overflow: hidden;
+  }
+
+#Inserimento_Dati4 {
+  padding-top: 15px;
+  text-align: center;
+  opacity: 0.8;
+  font: Bold 25px Arial;
+  color: #ffffff;
+  position:absolute;
+  top: 15%;
+  left: 36%;
+  height: 9%;
+  width: 28%;
+  padding: 10px;
+  background-color: #7C86F4;
+  overflow: auto;
+  }
+
+#Inserimento_Dati5 { 
+  text-align: center;
+  opacity: 0.8;
+  font: Bold 17px Arial;
+  color: #ffffff;
+  position:absolute;
+  top: 29%;
+  left: 36%;
+  height: 59%;
+  width: 28%;
+  padding: 10px;
+  background-color: #7C86F4;
+  overflow: hidden;
+  }
+
+#Inserimento_Dati6 {
+  text-align: center;
+  opacity: 0.8;
+  font: Bold 25px Arial;
+  color: #ffffff;
+  position:absolute;
+  top: 15%;
+  left: 68%;
+  height: 9%;
+  width: 28%;
+  padding: 10px;
+  background-color: #7C86F4;
+  overflow: auto;
+  }
+
+#Inserimento_Dati7 { 
+  text-align: center;
+  opacity: 0.8;
+  font: Bold 17px Arial;
+  color: #ffffff;
+  position:absolute;
+  top: 29%;
+  left: 68%;
+  height: 59%;
+  width: 28%;
+  padding: 10px;
+  background-color: #7C86F4;
+  overflow: hidden;
+  }
+
+#Inserimento_Dati8 { 
+  text-align: center;
+  opacity: 0.8;
+  font: Bold 18px Arial;
+  color: #ffffff;
+  position:absolute;
+  top: 92%;
+  left: 48.3%;
+  height: 3.5%;
+  width: 3.3%;
+  padding: 10px;
+  background-color: #7C86F4;
+  overflow: hidden;
+  }
+

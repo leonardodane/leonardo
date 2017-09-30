@@ -1,0 +1,25 @@
+html {
+  background: url(bg.png) no-repeat center center fixed;
+    -webkit-background-size:cover;
+    -moz-background-size: cover;
+    background-size: cover;
+  }
+  
+p  {
+    font-family: Arial;
+    font-size: 16px;
+    }
+    
+#Inserimento_Dati {
+  opacity: 0.7;
+  font: Bold 20px Arial;
+  color: #ffffff;
+  position:absolute;
+  top: 50px;
+  left: 50px;
+  height: 300px;
+  width: 600px;
+  padding: 20px;
+  background-color: #ff0000;
+  overflow: auto;
+  }

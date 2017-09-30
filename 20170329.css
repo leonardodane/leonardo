@@ -1,0 +1,72 @@
+html {
+  background: url(malignani.png) no-repeat center center fixed;
+   -webkit-background-size: cover;
+   -moz-background-size: cover;
+   background-size: cover;
+  }
+  
+  table, td, th {
+  color: #FFDD1C;
+  font: 18px Arial;
+  }
+ 
+  input[type=text] {
+  border: #2A26EC;
+  border-bottom: 2px solid #F4B700;
+  background-color: #2A26EC;
+  color: white;
+  width: 100px;
+  transition: ease-in-out, width 0.5s ease-in-out;
+  }
+
+  input[type=text]:hover {
+    width: 100%;
+    background-color: #2A26EC;
+  }
+  
+  input[type=email] {
+  border: #2A26EC;
+  border-bottom: 2px solid #F4B700;
+  background-color: #2A26EC;
+  color: white;
+  width: 200px;
+  transition: ease-in-out, width 0.5s ease-in-out;
+  }
+
+  input[type=email]:hover {
+    width: 100%;
+    background-color: #2A26EC;
+  }
+  
+  #Inserimento_Dati {
+  text-align: center;
+  opacity: 0.9;
+  font: bold 20px Arial;
+  color: #F4B700;
+  position:absolute;
+  top: 15px;
+  left: 28%;
+  height: 50px;
+  width: 44%;
+  padding: 5px;
+  background-color: #2A26EC;
+  overflow: auto;
+  border-radius: 10px 10px 10px 10px;
+  border: 2px;
+  }
+
+#Inserimento_Dati2 {
+  opacity: 0.9;
+  font: 20px Arial;
+  color: #F4B700;
+  position: absolute;
+  top: 86px;
+  left: 28%;
+  height: 650px;
+  width: 44%;
+  padding: 5px;
+  background-color: #2A26EC;
+  overflow: auto;
+  border-radius: 10px 10px 10px 10px;
+  border: 2px;
+  }

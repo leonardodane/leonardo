@@ -1,0 +1,105 @@
+<html>
+  <head>
+    <title>Iscrizione ai corso di nuoto</title>
+    <link href="20170315.css" rel="stylesheet" type="text/css"> 
+  </head>
+  <body>
+	 <div id="Inserimento_Dati">
+	 MODULO DI ISCRIZIONE AI CORSI DI NUOTO
+	 </div>
+	 <div id="Inserimento_Dati2">
+		INSERISCI I TUOI DATI ANAGRAFICI:
+	 </div>
+    <div id="Inserimento_Dati3">
+    <form action="inserimento.php" method="post">
+      <table>
+      <tr><td>Nome:</td><td><input type="text" name="nome"><br></td></tr>
+      <tr><td><br></td><td></td></tr>
+      <tr><td>Cognome:</td><td><input type="text" name="cognome"></td></tr>
+      <tr><td><br></td><td></td></tr>
+      <tr><td>Luogo di nascita:</td><td><input type="text" name="luogon"></td></tr>
+      <tr><td><br></td><td></td></tr>
+      <tr><td>Codice fiscale</td><td><input type="text" name="codice_fiscale"></td></tr>
+      <tr><td><br></td><td></td></tr>
+      <tr><td>Email</td><td><input type="text" name="email"><br></td></tr>
+      <tr><td><br></td><td></td></tr>
+      <tr><td>Data di nascita:</td><td><input type="date" name="datan"></td></tr>
+      <tr><td><br></td><td></td></tr>
+      <tr><td>Sesso</td><td><select>
+          <option value="maschio">Maschio</option> 
+			 <option value="femmina">Femmina</option> 
+        </select></td></tr>
+      </table>
+      <br><br>
+		   <input type="reset" value="cancella"><br>
+		   </div>
+	 <div id="Inserimento_Dati4">
+		  ORARI ALLENAMENTI E ISCRIZIONI ALLE GARE:
+    </div>
+	 <div id="Inserimento_Dati5">
+        Giorni e orari nella settimana:<br>
+        <br>
+	     <input type="checkbox" name="settimana">Luned&igrave; &nbsp; &nbsp; &nbsp; dalle:<input type="time" name="ora">alle:<input type="time" name="ora"><br>
+		  <br>
+        <input type="checkbox" name="settimana">Marted&igrave; &nbsp; &nbsp; &nbsp; dalle:<input type="time" name="ora">alle:<input type="time" name="ora"><br>
+		  <br>
+        <input type="checkbox" name="settimana">Mercoled&igrave; &nbsp; &nbsp; &nbsp;dalle:<input type="time" name="ora">alle:<input type="time" name="ora"><br>
+		  <br>
+		  <input type="checkbox" name="settimana">Goved&igrave; &nbsp; &nbsp; &nbsp; dalle:<input type="time" name="ora">alle:<input type="time" name="ora"><br>
+        <br>
+		  <input type="checkbox" name="settimana">Venerd&igrave; &nbsp; &nbsp; &nbsp;dalle:<input type="time" name="ora">alle:<input type="time" name="ora"><br>
+		  <hr>
+		  Iscrizione alle gare agonistiche:<br>
+		  <br>
+  		  <input type="radio" name="si">Si&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <input type="radio" name="no">No<br>
+        <br>
+        <input type="reset" value="cancella">
+		<br>
+    </div>
+    <div id="Inserimento_Dati6">
+		  LIVELLO E PREFERENZE NEL NUOTO:
+    </div>
+    <div id="Inserimento_Dati7">
+		  Stile preferito:<br>
+		  <table>
+        <tr><td><input type="checkbox" name="stile">Stile libero<br></td><td> <select multiple size="2">
+          <option value="metri">50 metri</option> 
+			 <option value="metri">100 metri</option> 
+			 <option value="metri">200 metri</option>
+			 <option value="metri">150 metri</option>
+			 <option value="metri">10000 metri</option>
+        </select></td></tr>
+        <tr><td><input type="checkbox" name="stile">Dorso<br></td><td><select multiple size="2">
+          <option value="metri">100 metri</option> 
+			 <option value="metri">200 metri</option> 
+        </select><br></td></tr>
+		  <tr><td><input type="checkbox" name="stile">Rana<br></td><td><select multiple size="2">
+          <option value="metri">100 metri</option> 
+			 <option value="metri">200 metri</option> 
+        </select><br></td></tr>
+		  <tr><td><input type="checkbox" name="stile">Farfalla<br></td><td><select multiple size="2">
+          <option value="metri">100 metri</option> 
+			 <option value="metri">200 metri</option> 
+        </select><br></td></tr>
+		  <tr><td><input type="checkbox" name="stile">Misti<br></td><td><select multiple size="2">
+          <option value="metri">100 metri</option> 
+			 <option value="metri">200 metri</option> 
+        </select><br></td></tr>
+		  <tr><td><input type="checkbox" name="stile">Staffetta<br></td><td><select multiple size="2">
+          <option value="metri">100 metri</option> 
+			 <option value="metri">200 metri</option> 
+        </select><br></td></tr>
+        </table>
+        <br>
+       <center>Livello di conoscenza:<br>
+       <br>
+       Avanzato<input type="radio" name=""> &nbsp; Medio<input type="radio" name=""> &nbsp; Base<input type="radio" name=""><br>
+		 <br>
+       <input type="reset" value="cancella"></center><br>
+    </div>
+    <div id="Inserimento_Dati8">
+        <input type="submit" value="invia">
+    </div>
+      </form>
+  </body>
+</html>

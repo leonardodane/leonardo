@@ -1,0 +1,72 @@
+<html>
+  <head>
+    <title>Dati dello studente</title>
+    <link href="20170329.css" rel="stylesheet" type="text/css"> 
+  </head>
+  <body>
+	 <div id="Inserimento_Dati">
+		<font size=6>INSERISCI I TUOI DATI:</font>
+	 </div>
+    <div id="Inserimento_Dati2">
+      <form action="inserimento.php" method="post">
+       <table>
+         <tr><td>Nome:</td><td><input type="text" name="nome"><br></td></tr>
+         <tr><td></td><td><br></td></tr>
+         <tr><td>Cognome:</td><td><input type="text" name="cognome"></td></tr>
+         <tr><td><br></td><td></td></tr>
+         <tr><td>Matricola:</td><td><input type="text" name="matricola"></td></tr>
+         <tr><td><br></td><td></td></tr> 
+         <tr><td>Email</td><td><input type="email" name="datan"></td></tr>
+         <tr><td><br></td><td></td></tr>
+         <tr><td>Specializzazione:</td><td><select name="specializzazione"><br>
+            <optgroup label="Istituto Tecnico">
+              <option value="cmb">Chimica, Materiali e Biotecnologie</option>
+              <option value="cam">Costruzioni, Ambiente e Territorio</option>
+              <option value="eea">Elettronica, Elettrotecnica e Automazione</option>
+              <option value="it">Informatica e Telecomunicazioni</option>
+              <option value="mm">Meccanica e Meccatronica</option>
+              <option value="a">Aeronautica</option>
+              <option value="mmsl">Meccanica, Meccatronica, settore legno</option>
+            </optgroup>
+            <optgroup label="Liceo">
+              <option value="lsdsa">Liceo Scientifico delle Scienze Applicate</option>
+            </optgroup>
+            <optgroup label="Istituto Professionale">
+              <option value="ipsl">Istituto Professionale Settore Legno</option>
+            </optgroup>
+            <optgroup label="Corsi Serali">
+              <option value="csmm">Meccanica e Meccatronica</option>
+              <option value="csee">Elettronica, Elettrotecnica</option>
+            </optgroup>
+          </select>
+          </td></tr>
+          <tr><td><br></td><td></td></tr>
+          <tr><td>Classe:</td><td><select name="classe">
+            <option value="1">1^</option>
+            <option value="2">2^</option>
+            <option value="3">3^</option>
+            <option value="4">4^</option>
+            <option value="5">5^</option>
+          </select></td></tr>
+          <tr><td><br></td><td></td></tr>
+          <tr><td>Sezione:</td><td><input type="radio" name="sezione" value="a" checked="checked">A &nbsp; &nbsp; &nbsp; <input type="radio" name="sezione" value="b">B &nbsp; &nbsp; &nbsp; <input type="radio" name="sezione" value="d">C<br>
+          <input type="radio" name="sezione" value="d">D &nbsp; &nbsp; &nbsp; <input type="radio" name="sezione" value="e">E &nbsp; &nbsp; &nbsp; <input type="radio" name="sezione" value="f">F<br>
+          <input type="radio" name="sezione" value="g">G<br></td></tr>
+          <tr><td></td><td><hr></td></tr>
+          <tr><td>Corsi di potenziamento:</td><td><input type="radio" name="corsi" value="si">Si &nbsp; &nbsp; &nbsp; <input type="radio" name="corsi" value="no" checked="checked" disabled="disabled">No</td></tr>
+          <tr><td></td><td><hr></td></tr>
+          <tr><td>Settimana corta:</td><td><input type="radio" name="corta" value="yes">Si &nbsp; &nbsp; &nbsp; 
+          <input type="radio" name="corta" value="none" checked="checked" disabled="disabled">No</td></tr>
+          <tr><td></td><td><hr></td></tr>
+          <tr><td>Religione cattolica:</td><td><input type="radio" name="religione" value="ja"  checked="checked">Si &nbsp; &nbsp; &nbsp; 
+          <input type="radio" name="religione" value="nein">No</td></tr>
+          <tr><td></td><td><hr></td></tr>
+          <tr><td>Sesso:</td><td><input type="radio" name="sesso" value="maschio"  checked="checked">Maschio &nbsp; &nbsp; &nbsp; 
+          <input type="radio" name="sesso" value="femmina">Femmina</td></tr>
+          <tr><td><input type="submit" name="invia">&nbsp; &nbsp; &nbsp;<input type="reset" name="cancella"></td><td></td></tr>
+        </table>
+		  </form>
+    </div>
+      <img src="Logo_Malignani.gif" width="275" height="80" alt="Malignani" usemap="#malignani">
+  </body>
+</html>
