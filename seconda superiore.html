@@ -1,0 +1,243 @@
+<html>
+  <head>
+    <link href="seconda superiore.css" rel="stylesheet" type="text/css">
+    <title>leonardo Danelutti</title>
+  </head>
+  <body>
+  <script type="text/javascript">
+
+var futureyear=2018
+var futuremonth=5
+var futureday=9
+var displaytype="vediall"
+var digitordate="isdate"
+var aftercountdown="stopit"
+var digitfrom=100
+var digitto=0
+var speed=1
+
+var countdownid=new Array()
+var futuredate
+var nowdate
+var resultoreraw
+var resultore
+var resultminutiraw
+var resultminuti
+var resultsecondiraw
+var resultsecondi
+
+var p_secondi
+var p_minuti
+var p_ore
+var p_giorni
+
+var resultsecondionly
+var resultminutionly
+var resultoreonly
+var content
+
+var i_countdown=-1
+var countdownid
+
+var step=1
+speed*=1000
+
+if (digitfrom>digitto) {step=-1}
+if (digitfrom<digitto) {step=1}
+
+var browserinfos=navigator.userAgent 
+var ns4=document.layers
+var ie4=!document.getElementById&&document.all&&!browserinfos.match(/Opera/)
+var ie5=document.getElementById&&document.all&&!browserinfos.match(/Opera/)
+var ns6=document.getElementById&&!document.all&&!browserinfos.match(/Opera/)
+var opera=browserinfos.match(/Opera/)  
+
+function setfuturedate() {
+	futuredate=new Date(futureyear,futuremonth,futureday,0,0,0)
+	if (digitordate=="isdigit") {content=digitfrom-step	}
+	docountdown()
+}
+
+function docountdown() {
+	if (digitordate=="isdate") {
+		calculateresults()
+		formatresults()
+		displayresults()
+		setTimeout("docountdown()",speed)
+	}
+	else if (digitordate=="isdigit") {
+		content+=step	
+		displayresults()
+		if (content==digitto) {
+			setTimeout("happensafter()",speed)
+		}
+		else {
+			setTimeout("docountdown()",speed)
+		}
+	}
+}
+
+function firstcountdown() {
+	if (digitordate=="isdate") {
+		futuredate=new Date(futureyear,futuremonth,futureday,0,0,0)
+		calculateresults()
+		formatresults()
+	}
+	else if (digitordate=="isdigit") {
+		content=digitfrom
+	}
+}
+
+function calculateresults() {
+nowdate=new Date()
+resultgiorniraw=(Date.parse(futuredate)-Date.parse(nowdate))/1000/60/60/24
+if (displaytype!="vediall") {
+	resultsecondionly=Math.floor((Date.parse(futuredate)-Date.parse(nowdate))/1000)
+	resultminutionly=Math.floor((Date.parse(futuredate)-Date.parse(nowdate))/1000/60)
+	resultoreonly=Math.floor((Date.parse(futuredate)-Date.parse(nowdate))/1000/60/60)
+}
+else {
+	resultgiorni=Math.floor((Date.parse(futuredate)-Date.parse(nowdate))/1000/60/60/24)
+	resultoreraw=(resultgiorniraw-resultgiorni)*24
+	resultore=Math.floor((resultgiorniraw-resultgiorni)*24)
+	resultminutiraw=(resultoreraw-resultore)*60
+	resultminuti=Math.floor((resultoreraw-resultore)*60)
+	resultsecondiraw=(resultminutiraw-resultminuti)*60
+	resultsecondi=Math.floor((resultminutiraw-resultminuti)*60)
+	}
+}
+
+function formatresults() {
+	if (displaytype=="vediall") {
+		if (resultgiorni>1) {p_giorni="giorni"}
+		else {p_giorni="day"}
+		if (resultminuti<10) {resultminuti="0"+resultminuti}
+		if (resultsecondi<10) {resultsecondi="0"+resultsecondi}
+		content=resultgiorni+" "+p_giorni+" "+resultore+"h "+resultminuti+"m "+resultsecondi +"s"
+	}
+	else if (displaytype=="vedigiorni") {
+		if (resultgiorni>1) {p_giorni="giorni"}
+		else {p_giorni="day"}
+		content=resultgiorni+" "+p_giorni
+	}
+	else if (displaytype=="vediore") {
+		content=resultoreonly+" Ore"
+	}
+	else if (displaytype=="vediminuti") {
+		content=resultminutionly+" min"
+	}
+	else if (displaytype=="vedisecondi") {
+		content=resultsecondionly+" sec"
+	}
+}
+
+function happensafter() {
+	if (aftercountdown=="repeatit") {
+		if (digitordate=="isdigit") {content=digitfrom-step}
+		docountdown()
+	}
+	if (aftercountdown!="stopit" && aftercountdown!="repeatit") {
+		document.location.href=aftercountdown
+	}
+}
+
+function displayresults() {
+	if (ie4) {
+		for (i=0;i<=countdownid.length-1;i++) {
+			var thisclock=eval(countdownid[i])
+			thisclock.innerHTML=content
+		}
+	}
+	else {
+		for (i=0;i<=countdownid.length-1;i++) {
+			document.getElementById(countdownid[i]).innerHTML=content
+		}
+	}
+}
+
+function setcountdown() {
+	if (ns4 || ie4 || ie5 || ns6 || opera) {
+		firstcountdown()
+		i_countdown++
+		countdownid[i_countdown]="countdown"+i_countdown
+		document.write("<span id='"+countdownid[i_countdown]+"' style='position:relative'>"+content+"</span>")
+	}
+}
+
+if (ie4 || ie5 || ns6 || opera) {
+	onload=setfuturedate
+}
+</script>
+<div class="navbar">
+  <a href="#home">I miei files</a>
+  <div class="dropdown">
+    <button class="dropbtn">Classe frequentata 
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div id="barra" class="dropdown-content">
+      <a href="terza media.html" >Terza media</a>
+      <a href="prima superiore.html">Prima superiore</a>
+      <a href="seconda superiore.html">Seconda superiore</a>
+    </div>
+  </div> 
+</div>
+ <div id="nomi">
+ TUTTI I MIEI FILES SCOLASTICI DELLA SECONDA SUPERIORE
+ </div>
+ <div id="files">
+ <div id="informatica">
+ <font size="5">INFORMATICA</font><br><br>
+ <a href="C:\Users\Elena\Documents\scuola\2° superiore\web\1°.php" download="1°.php">1&#176;.php</a><br><br>
+ <a href="C:\Users\Elena\Documents\scuola\2° superiore\web\20171021_1.png" download="20171021_1.png">20171021_1.png</a><br><br>
+ <a href="C:\Users\Elena\Documents\scuola\2° superiore\web\20171021_2.png" download="20171021_2.png">20171021_2.png</a><br><br>
+ <a href="C:\Users\Elena\Documents\scuola\2° superiore\web\20171104.dia" download="20171104.dia">20171104.dia</a><br><br>
+ <a href="C:\Users\Elena\Documents\scuola\2° superiore\web\20171104_2.dia" download="20171202_2.dia">20171104_2.dia</a><br><br>
+ <a href="C:\Users\Elena\Documents\scuola\2° superiore\web\20171202_1.dia" download="20171202_1.dia">20171202_1.dia</a><br><br>
+ <a href="C:\Users\Elena\Documents\scuola\2° superiore\web\20171202_2.dia" download="20171202_2.dia">20171202_2.dia</a><br><br>
+ <a href="C:\Users\Elena\Documents\scuola\2° superiore\web\20171202_3.dia" download="20171202_3.dia">20171202_3.dia</a><br><br>
+ <a href="C:\Users\Elena\Documents\scuola\2° superiore\web\20171202_4.dia" download="20171202_4.dia">20171202_4.dia</a><br><br>
+ <a href="C:\Users\Elena\Documents\scuola\2° superiore\web\diagramma di flusso 1°.jpeg" download="diagramma di flusso 1°.jpeg">diagramma di flusso 1&#176;;.jpeg</a><br><br>
+ <a href="C:\Users\Elena\Documents\scuola\2° superiore\web\diagramma di flusso 2°.jpeg" download="diagramma di flusso 2°.jpeg">diagramma di flusso 2&#176;.jpeg</a><br><br>
+ <a href="C:\Users\Elena\Documents\scuola\2° superiore\web\diagramma di flusso 3°.jpeg" download="diagramma di flusso 3°.jpeg">diagramma di flusso 3&#176;.jpeg</a><br><br>
+ <a href="C:\Users\Elena\Documents\scuola\2° superiore\web\secondo.php" download="secondo.php">secondo.php</a><br><br>
+ </div>
+ <div id="inglese">
+ <font size="5">INGLESE</font><br><br>
+  <a href="C:\Users\Elena\Documents\scuola\2° superiore\web\paradise mio.odt" download="paradise mio.odt">paradise mio.odt</a><br><br>
+  <a href="C:\Users\Elena\Documents\scuola\2° superiore\web\paradise prof.odt" download="paradise prof.odt">paradise prof.odt</a><br><br>
+  <a href="C:\Users\Elena\Documents\scuola\2° superiore\web\paradise.odt" download="paradise.odt">paradise.odt</a><br><br>
+ </div>
+ <div id="italiano">
+ <font size="5">ITALIANO</font><br><br>
+  <a href="C:\Users\Elena\Documents\scuola\2° superiore\web\manzoni.docx" download="manzoni.docx">manzoni.docx</a><br><br>
+  <a href="C:\Users\Elena\Documents\scuola\2° superiore\web\manzoni_schema.docx" download="manzoni_schema">manzoni_schema</a><br><br>
+ </div>
+ <div id="matematica">
+ <font size="5">MATEMATICA</font><br><br>
+ <a href="C:\Users\Elena\Documents\scuola\2° superiore\web\1.ggb" download="1.ggb">1.ggb</a><br><br>
+ <a href="C:\Users\Elena\Documents\scuola\2° superiore\web\attività seulle funzioni.pdf" download="attività seulle funzioni.pdf">attivit&agrave; sulle funzioni.pdf</a><br><br>
+ <a href="C:\Users\Elena\Documents\scuola\2° superiore\web\attività seulle funzioni.xlsx" download="attività seulle funzioni.xlsx">attività seulle funzioni.xlsx</a><br><br>
+ <a href="C:\Users\Elena\Documents\scuola\2° superiore\web\Calcolo dell'IRPEF.pdf" download="Calcolo dell'IRPEF.pdf">Calcolo dell'IRPEF.pdf</a><br><br>
+ <a href="C:\Users\Elena\Documents\scuola\2° superiore\web\Calcolo dell'IRPEF.xlsx" download="Calcolo dell'IRPEF.xlsx">Calcolo dell'IRPEF.xlsx</a><br><br>
+ <a href="C:\Users\Elena\Documents\scuola\2° superiore\web\euclide.odt" download="euclide.odt">euclide.odt</a><br><br>
+ <a href="C:\Users\Elena\Documents\scuola\2° superiore\web\Laboratorio_funzioni.pdf" download="Laboratorio_funzioni.pdf">Laboratorio_funzioni.pdf</a><br><br>
+ <a href="C:\Users\Elena\Documents\scuola\2° superiore\web\primo.ggb" download="primo.ggb">primo.ggb</a><br><br>
+ <a href="C:\Users\Elena\Documents\scuola\2° superiore\web\problemi 1492017.pdf" download="problemi 1492017.pdf">problemi 1492017.pdf</a><br><br>
+ <a href="C:\Users\Elena\Documents\scuola\2° superiore\web\secondo.ggb" download="secondo.ggb">secondo.ggb</a><br><br>
+ </div>
+<div id="scienze">
+ <font size="5">SCIENZE</font><br><br>
+ <a href="C:\Users\Elena\Documents\scuola\2° superiore\web\proprietà dell'acqua.odt" download="proprietà dell'acqua.odt">proprietà dell'acqua.odt</a><br>
+ <a href="C:\Users\Elena\Documents\scuola\2° superiore\web\proprietà dell'acqua.pdf" download="proprietà dell'acqua.pdf">proprietà dell'acqua.pdf</a><br>
+ </div>
+</div>
+<div id="contatore">
+<font size="5">GIORNI ALLA FINE DELLA SCUOLA:</font><br><br>
+<script type="text/javascript">
+<!-- 
+setcountdown() 
+// end -->
+</script>
+</div>
+  </body>
+</html>

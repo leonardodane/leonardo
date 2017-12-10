@@ -1,0 +1,218 @@
+<html>
+  <head>
+    <link href="terza media.css" rel="stylesheet" type="text/css">
+    <title>leonardo Danelutti</title>
+  </head>
+  <body>
+  <script type="text/javascript">
+
+var futureyear=2018
+var futuremonth=5
+var futureday=9
+var displaytype="vediall"
+var digitordate="isdate"
+var aftercountdown="stopit"
+var digitfrom=100
+var digitto=0
+var speed=1
+
+var countdownid=new Array()
+var futuredate
+var nowdate
+var resultoreraw
+var resultore
+var resultminutiraw
+var resultminuti
+var resultsecondiraw
+var resultsecondi
+
+var p_secondi
+var p_minuti
+var p_ore
+var p_giorni
+
+var resultsecondionly
+var resultminutionly
+var resultoreonly
+var content
+
+var i_countdown=-1
+var countdownid
+
+var step=1
+speed*=1000
+
+if (digitfrom>digitto) {step=-1}
+if (digitfrom<digitto) {step=1}
+
+var browserinfos=navigator.userAgent 
+var ns4=document.layers
+var ie4=!document.getElementById&&document.all&&!browserinfos.match(/Opera/)
+var ie5=document.getElementById&&document.all&&!browserinfos.match(/Opera/)
+var ns6=document.getElementById&&!document.all&&!browserinfos.match(/Opera/)
+var opera=browserinfos.match(/Opera/)  
+
+function setfuturedate() {
+	futuredate=new Date(futureyear,futuremonth,futureday,0,0,0)
+	if (digitordate=="isdigit") {content=digitfrom-step	}
+	docountdown()
+}
+
+function docountdown() {
+	if (digitordate=="isdate") {
+		calculateresults()
+		formatresults()
+		displayresults()
+		setTimeout("docountdown()",speed)
+	}
+	else if (digitordate=="isdigit") {
+		content+=step	
+		displayresults()
+		if (content==digitto) {
+			setTimeout("happensafter()",speed)
+		}
+		else {
+			setTimeout("docountdown()",speed)
+		}
+	}
+}
+
+function firstcountdown() {
+	if (digitordate=="isdate") {
+		futuredate=new Date(futureyear,futuremonth,futureday,0,0,0)
+		calculateresults()
+		formatresults()
+	}
+	else if (digitordate=="isdigit") {
+		content=digitfrom
+	}
+}
+
+function calculateresults() {
+nowdate=new Date()
+resultgiorniraw=(Date.parse(futuredate)-Date.parse(nowdate))/1000/60/60/24
+if (displaytype!="vediall") {
+	resultsecondionly=Math.floor((Date.parse(futuredate)-Date.parse(nowdate))/1000)
+	resultminutionly=Math.floor((Date.parse(futuredate)-Date.parse(nowdate))/1000/60)
+	resultoreonly=Math.floor((Date.parse(futuredate)-Date.parse(nowdate))/1000/60/60)
+}
+else {
+	resultgiorni=Math.floor((Date.parse(futuredate)-Date.parse(nowdate))/1000/60/60/24)
+	resultoreraw=(resultgiorniraw-resultgiorni)*24
+	resultore=Math.floor((resultgiorniraw-resultgiorni)*24)
+	resultminutiraw=(resultoreraw-resultore)*60
+	resultminuti=Math.floor((resultoreraw-resultore)*60)
+	resultsecondiraw=(resultminutiraw-resultminuti)*60
+	resultsecondi=Math.floor((resultminutiraw-resultminuti)*60)
+	}
+}
+
+function formatresults() {
+	if (displaytype=="vediall") {
+		if (resultgiorni>1) {p_giorni="giorni"}
+		else {p_giorni="day"}
+		if (resultminuti<10) {resultminuti="0"+resultminuti}
+		if (resultsecondi<10) {resultsecondi="0"+resultsecondi}
+		content=resultgiorni+" "+p_giorni+" "+resultore+"h "+resultminuti+"m "+resultsecondi +"s"
+	}
+	else if (displaytype=="vedigiorni") {
+		if (resultgiorni>1) {p_giorni="giorni"}
+		else {p_giorni="day"}
+		content=resultgiorni+" "+p_giorni
+	}
+	else if (displaytype=="vediore") {
+		content=resultoreonly+" Ore"
+	}
+	else if (displaytype=="vediminuti") {
+		content=resultminutionly+" min"
+	}
+	else if (displaytype=="vedisecondi") {
+		content=resultsecondionly+" sec"
+	}
+}
+
+function happensafter() {
+	if (aftercountdown=="repeatit") {
+		if (digitordate=="isdigit") {content=digitfrom-step}
+		docountdown()
+	}
+	if (aftercountdown!="stopit" && aftercountdown!="repeatit") {
+		document.location.href=aftercountdown
+	}
+}
+
+function displayresults() {
+	if (ie4) {
+		for (i=0;i<=countdownid.length-1;i++) {
+			var thisclock=eval(countdownid[i])
+			thisclock.innerHTML=content
+		}
+	}
+	else {
+		for (i=0;i<=countdownid.length-1;i++) {
+			document.getElementById(countdownid[i]).innerHTML=content
+		}
+	}
+}
+
+function setcountdown() {
+	if (ns4 || ie4 || ie5 || ns6 || opera) {
+		firstcountdown()
+		i_countdown++
+		countdownid[i_countdown]="countdown"+i_countdown
+		document.write("<span id='"+countdownid[i_countdown]+"' style='position:relative'>"+content+"</span>")
+	}
+}
+
+if (ie4 || ie5 || ns6 || opera) {
+	onload=setfuturedate
+}
+</script>
+<div class="navbar">
+  <a href="#home">I miei files</a>
+  <div class="dropdown">
+    <button class="dropbtn">Classe frequentata 
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div id="barra" class="dropdown-content">
+      <a href="terza media.html" >Terza media</a>
+      <a href="prima superiore.html">Prima superiore</a>
+      <a href="seconda superiore.html">Seconda superiore</a>
+    </div>
+  </div> 
+</div>
+ <div id="nomi">
+ TUTTI I MIEI FILES SCOLASTICI DELLA SECONDA SUPERIORE
+ </div>
+ <div id="files">
+ <div id="esame">
+ <font size="5"><center>ESAME</center></font><br><br>
+ <a href="C:\Users\Elena\Documents\scuola\2° superiore\web\seconda rivoluzione industriale.odp" download="seconda rivoluzione industriale.odp">seconda rivoluzione industriale.odp</a><br><br>
+ <a href="C:\Users\Elena\Documents\scuola\2° superiore\web\The sound of silence.wma" download="The sound of silence.wma">The sound of silence.wma</a><br><br>
+ </div>
+ <div id="geografia">
+ <font size="5"><center>GEOGRAFIA</center></font><br><br>
+  <a href="C:\Users\Elena\Documents\scuola\2° superiore\web\l america settentrionale.odp" download="l america settentrionale.odp">l america settentrionale.odp</a><br><br>
+  <a href="C:\Users\Elena\Documents\scuola\2° superiore\web\MALDIVE.odp" download="MALDIVE.odp">MALDIVE.odp</a><br><br>
+  <a href="C:\Users\Elena\Documents\scuola\2° superiore\web\ricerca sudafrica.odp" download="ricerca sudafrica.odp">ricerca sudafrica.odp</a><br><br>
+  <a href="C:\Users\Elena\Documents\scuola\2° superiore\web\RICERCA SUL SENEGAL.odp" download="RICERCA SUL SENEGAL.odp">RICERCA SUL SENEGAL.odp</a><br><br>
+  <a href="C:\Users\Elena\Documents\scuola\2° superiore\web\testo laos.odt" download="testo laos.odt">testo laos.odt</a><br><br>
+ </div>
+ <div id="italiano">
+ <font size="5"><center>ITALIANO</center></font><br><br>
+  <a href="C:\Users\Elena\Documents\scuola\2° superiore\web\io e gli altri.odp" download="io e gli altri.odp">io e gli altri.odp</a><br><br>
+  <a href="C:\Users\Elena\Documents\scuola\2° superiore\web\LE REGOLE SPIEGATE AI BAMBINI.odp" download="LE REGOLE SPIEGATE AI BAMBINI.odp">LE REGOLE SPIEGATE AI BAMBINI.odp</a><br><br>
+  <a href="C:\Users\Elena\Documents\scuola\2° superiore\web\Malcolm x.odp" download="Malcolm x.odp">Malcolm x.odp</a><br><br>
+  <a href="C:\Users\Elena\Documents\scuola\2° superiore\web\malcolm.odt" download="malcolm.odt">malcolm.odt</a><br><br>
+ </div>
+</div>
+<div id="contatore">
+<font size="5">GIORNI ALLA FINE DELLA SCUOLA:</font><br><br>
+<script type="text/javascript">
+<!-- 
+setcountdown() 
+// end -->
+</script>
+</div>
+  </body>
+</html>

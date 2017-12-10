@@ -1,0 +1,309 @@
+<html>
+  <head>
+    <link href="prima superiore.css" rel="stylesheet" type="text/css">
+    <title>leonardo Danelutti</title>
+  </head>
+  <body>
+  <script type="text/javascript">
+
+var futureyear=2018
+var futuremonth=5
+var futureday=9
+var displaytype="vediall"
+var digitordate="isdate"
+var aftercountdown="stopit"
+var digitfrom=100
+var digitto=0
+var speed=1
+
+var countdownid=new Array()
+var futuredate
+var nowdate
+var resultoreraw
+var resultore
+var resultminutiraw
+var resultminuti
+var resultsecondiraw
+var resultsecondi
+
+var p_secondi
+var p_minuti
+var p_ore
+var p_giorni
+
+var resultsecondionly
+var resultminutionly
+var resultoreonly
+var content
+
+var i_countdown=-1
+var countdownid
+
+var step=1
+speed*=1000
+
+if (digitfrom>digitto) {step=-1}
+if (digitfrom<digitto) {step=1}
+
+var browserinfos=navigator.userAgent 
+var ns4=document.layers
+var ie4=!document.getElementById&&document.all&&!browserinfos.match(/Opera/)
+var ie5=document.getElementById&&document.all&&!browserinfos.match(/Opera/)
+var ns6=document.getElementById&&!document.all&&!browserinfos.match(/Opera/)
+var opera=browserinfos.match(/Opera/)  
+
+function setfuturedate() {
+	futuredate=new Date(futureyear,futuremonth,futureday,0,0,0)
+	if (digitordate=="isdigit") {content=digitfrom-step	}
+	docountdown()
+}
+
+function docountdown() {
+	if (digitordate=="isdate") {
+		calculateresults()
+		formatresults()
+		displayresults()
+		setTimeout("docountdown()",speed)
+	}
+	else if (digitordate=="isdigit") {
+		content+=step	
+		displayresults()
+		if (content==digitto) {
+			setTimeout("happensafter()",speed)
+		}
+		else {
+			setTimeout("docountdown()",speed)
+		}
+	}
+}
+
+function firstcountdown() {
+	if (digitordate=="isdate") {
+		futuredate=new Date(futureyear,futuremonth,futureday,0,0,0)
+		calculateresults()
+		formatresults()
+	}
+	else if (digitordate=="isdigit") {
+		content=digitfrom
+	}
+}
+
+function calculateresults() {
+nowdate=new Date()
+resultgiorniraw=(Date.parse(futuredate)-Date.parse(nowdate))/1000/60/60/24
+if (displaytype!="vediall") {
+	resultsecondionly=Math.floor((Date.parse(futuredate)-Date.parse(nowdate))/1000)
+	resultminutionly=Math.floor((Date.parse(futuredate)-Date.parse(nowdate))/1000/60)
+	resultoreonly=Math.floor((Date.parse(futuredate)-Date.parse(nowdate))/1000/60/60)
+}
+else {
+	resultgiorni=Math.floor((Date.parse(futuredate)-Date.parse(nowdate))/1000/60/60/24)
+	resultoreraw=(resultgiorniraw-resultgiorni)*24
+	resultore=Math.floor((resultgiorniraw-resultgiorni)*24)
+	resultminutiraw=(resultoreraw-resultore)*60
+	resultminuti=Math.floor((resultoreraw-resultore)*60)
+	resultsecondiraw=(resultminutiraw-resultminuti)*60
+	resultsecondi=Math.floor((resultminutiraw-resultminuti)*60)
+	}
+}
+
+function formatresults() {
+	if (displaytype=="vediall") {
+		if (resultgiorni>1) {p_giorni="giorni"}
+		else {p_giorni="day"}
+		if (resultminuti<10) {resultminuti="0"+resultminuti}
+		if (resultsecondi<10) {resultsecondi="0"+resultsecondi}
+		content=resultgiorni+" "+p_giorni+" "+resultore+"h "+resultminuti+"m "+resultsecondi +"s"
+	}
+	else if (displaytype=="vedigiorni") {
+		if (resultgiorni>1) {p_giorni="giorni"}
+		else {p_giorni="day"}
+		content=resultgiorni+" "+p_giorni
+	}
+	else if (displaytype=="vediore") {
+		content=resultoreonly+" Ore"
+	}
+	else if (displaytype=="vediminuti") {
+		content=resultminutionly+" min"
+	}
+	else if (displaytype=="vedisecondi") {
+		content=resultsecondionly+" sec"
+	}
+}
+
+function happensafter() {
+	if (aftercountdown=="repeatit") {
+		if (digitordate=="isdigit") {content=digitfrom-step}
+		docountdown()
+	}
+	if (aftercountdown!="stopit" && aftercountdown!="repeatit") {
+		document.location.href=aftercountdown
+	}
+}
+
+function displayresults() {
+	if (ie4) {
+		for (i=0;i<=countdownid.length-1;i++) {
+			var thisclock=eval(countdownid[i])
+			thisclock.innerHTML=content
+		}
+	}
+	else {
+		for (i=0;i<=countdownid.length-1;i++) {
+			document.getElementById(countdownid[i]).innerHTML=content
+		}
+	}
+}
+
+function setcountdown() {
+	if (ns4 || ie4 || ie5 || ns6 || opera) {
+		firstcountdown()
+		i_countdown++
+		countdownid[i_countdown]="countdown"+i_countdown
+		document.write("<span id='"+countdownid[i_countdown]+"' style='position:relative'>"+content+"</span>")
+	}
+}
+
+if (ie4 || ie5 || ns6 || opera) {
+	onload=setfuturedate
+}
+</script>
+<div class="navbar">
+  <a href="#home">I miei files</a>
+  <div class="dropdown">
+    <button class="dropbtn">Classe frequentata 
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div id="barra" class="dropdown-content">
+      <a href="terza media.html" >Terza media</a>
+      <a href="prima superiore.html">Prima superiore</a>
+      <a href="seconda superiore.html">Seconda superiore</a>
+    </div>
+  </div> 
+</div>
+ <div id="nomi">
+ TUTTI I MIEI FILES SCOLASTICI DELLA SECONDA SUPERIORE
+ </div>
+ <div id="files">
+ <div id="fisica">
+ <font size="5">FISICA</font><br><br>
+  <a href="C:\Users\Elena\Documents\scuola\2° superiore\web\costante elastica.PNG" download="pcostante elastica.PNG">costante elastica.PNG</a><br><br>
+  <a href="C:\Users\Elena\Documents\scuola\2° superiore\web\ERRORE QUADRATICO MEDIO.ods" download="ERRORE QUADRATICO MEDIO.ods">ERRORE QUADRATICO MEDIO.ods</a><br><br>
+  <a href="C:\Users\Elena\Documents\scuola\2° superiore\web\fisica.odt" download="fisica.odt">fisica.odt</a><br><br>
+  <a href="C:\Users\Elena\Documents\scuola\2° superiore\web\k.ggb" download="k.ggb">k.ggb</a><br><br>
+  <a href="C:\Users\Elena\Documents\scuola\2° superiore\web\laboratorio molle.ods" download="laboratorio molle.ods">laboratorio molle.ods</a><br><br>
+  <a href="C:\Users\Elena\Documents\scuola\2° superiore\web\relazione.odt" download="relazione.odt">relazione.odt</a><br><br>
+ </div>
+ <div id="informatica">
+ <font size="5">INFORMATICA</font><br><br>
+  <a href="C:\Users\Elena\Documents\scuola\2° superiore\web\Logo_Malignani.gif" download="costante elastica.PNG">costante elastica.PNG</a><br><br>
+  <a href="C:\Users\Elena\Documents\scuola\2° superiore\web\20161214.html" download="20161214.html">20161214.html</a><br><br>
+  <a href="C:\Users\Elena\Documents\scuola\2° superiore\web\20161221.html" download="20161221.html">20161221.html</a><br><br>
+  <a href="C:\Users\Elena\Documents\scuola\2° superiore\web\20170215.html" download="20170215.html">20170215.html</a><br><br>
+  <a href="C:\Users\Elena\Documents\scuola\2° superiore\web\20170315.html" download="20170315.html">20170315.html</a><br><br>
+  <a href="C:\Users\Elena\Documents\scuola\2° superiore\web\20170329.html" download="20170329.html">20170329.html</a><br><br>
+  <a href="C:\Users\Elena\Documents\scuola\2° superiore\web\20170503.html" download="20170503.html">20170503.html</a><br><br>
+  <a href="C:\Users\Elena\Documents\scuola\2° superiore\web\anagrafe.html" download="anagrafe.html">anagrafe.html</a><br><br>
+  <a href="C:\Users\Elena\Documents\scuola\2° superiore\web\prova.html" download="prova.html">prova.html</a><br><br>
+  <a href="C:\Users\Elena\Documents\scuola\2° superiore\web\iscrizione.png" download="iscrizione.png">iscrizione.png</a><br><br>
+  <a href="C:\Users\Elena\Documents\scuola\2° superiore\web\malignani.png" download="malignani.png">malignani.png</a><br><br>
+  <a href="C:\Users\Elena\Documents\scuola\2° superiore\web\sfondo.png" download="sfondo.png">sfondo.png</a><br><br>
+  <a href="C:\Users\Elena\Documents\scuola\2° superiore\web\triangolorettangolo.png" download="triangolorettangolo.png">triangolorettangolo.png</a><br><br>
+  <a href="C:\Users\Elena\Documents\scuola\2° superiore\web\20170215.html" download="20170215.css">20170215.css</a><br><br>
+  <a href="C:\Users\Elena\Documents\scuola\2° superiore\web\20170315.html" download="20170315.css">20170315.css</a><br><br>
+  <a href="C:\Users\Elena\Documents\scuola\2° superiore\web\20170329.html" download="20170329.css">20170329.css</a><br><br>
+  <a href="C:\Users\Elena\Documents\scuola\2° superiore\web\20170503.html" download="20170503.css">20170503.css</a><br><br>
+  <a href="C:\Users\Elena\Documents\scuola\2° superiore\web\anagrafe.css" download="anagrafe.css">anagrafe.css</a><br><br>
+  <a href="C:\Users\Elena\Documents\scuola\2° superiore\web\prova.css" download="prova.css">prova.css</a><br><br>
+  <a href="C:\Users\Elena\Documents\scuola\2° superiore\web\stile.css" download="stile.css">stile.css</a><br><br>
+  <a href="C:\Users\Elena\Documents\scuola\2° superiore\web\malignani.xcf" download="malignani.xcf">malignani.xcf</a><br><br>
+ </div>
+ <div id="italianostoria">
+ <font size="5">ITALIANO/<br>STORIA</font><br><br>
+ <a href="C:\Users\Elena\Documents\scuola\2° superiore\web\ricerca antico egitto tagliata.odt" download="ricerca antico egitto tagliata.odt">ricerca antico egitto tagliata.odt</a><br><br>
+ <a href="C:\Users\Elena\Documents\scuola\2° superiore\web\ricerca antico egitto.odt" download="ricerca antico egitto.odt">ricerca antico egitto.odt</a><br><br>
+ <a href="C:\Users\Elena\Documents\scuola\2° superiore\web\ricerca geografia.odt" download="ricerca geografia.odt">ricerca geografia.odt</a><br><br>
+ <a href="C:\Users\Elena\Documents\scuola\2° superiore\web\ricerca italia.odt" download="ricerca italia.odt">ricerca italia.odt</a><br><br>
+ <a href="C:\Users\Elena\Documents\scuola\2° superiore\web\scheda libro Roy Lewis.odt" download="scheda libro Roy Lewis.odt">scheda libro Roy Lewis.odt</a><br><br>
+ <a href="C:\Users\Elena\Documents\scuola\2° superiore\web\scheda libro V.Manfredi.odt" download="scheda libro V.Manfredi.odt">scheda libro V.Manfredi.odt</a><br><br>
+ </div>
+<div id="scienze">
+ <font size="5">SCIENZE</font><br><br>
+ <a href="C:\Users\Elena\Documents\scuola\2° superiore\web\climi.odt" download="climi.odt">climi.odt</a><br><br>
+ <a href="C:\Users\Elena\Documents\scuola\2° superiore\web\curva di riscaldamento.png" download="curva di riscaldamento.png">curva di riscaldamento.png</a><br><br>
+  <a href="C:\Users\Elena\Documents\scuola\2° superiore\web\i climi.odt" download="i climi.odt">i climi.odt</a><br><br>
+ <a href="C:\Users\Elena\Documents\scuola\2° superiore\web\laboratorio 1°.odt" download="laboratorio 1°.odt">laboratorio 1°.odt</a><br><br>
+ <a href="C:\Users\Elena\Documents\scuola\2° superiore\web\laboratorio 1°.pdf" download="laboratorio 1°.pdf">laboratorio 1°.pdf</a><br><br>
+ <a href="C:\Users\Elena\Documents\scuola\2° superiore\web\laboratorio 2°.odt" download="laboratorio 2°.odt">laboratorio 2°.odt</a><br><br>
+ <a href="C:\Users\Elena\Documents\scuola\2° superiore\web\laboratorio 2°.pdf" download="laboratorio 2°.pdf">laboratorio 2°.pdf</a><br><br>
+ <a href="C:\Users\Elena\Documents\scuola\2° superiore\web\laboratorio 3°.odt" download="laboratorio 3°.odt">laboratorio 3°.odt</a><br><br>
+ <a href="C:\Users\Elena\Documents\scuola\2° superiore\web\laboratorio 3°.pdf" download="laboratorio 3°.pdf">laboratorio 3°.pdf</a><br><br>
+ <a href="C:\Users\Elena\Documents\scuola\2° superiore\web\laboratorio 4°.odt" download="laboratorio 4°.odt">laboratorio 4°.odt</a><br><br>
+ <a href="C:\Users\Elena\Documents\scuola\2° superiore\web\laboratorio 4°.pdf" download="laboratorio 4°.pdf">laboratorio 4°.pdf</a><br><br>
+ <a href="C:\Users\Elena\Documents\scuola\2° superiore\web\laboratorio 5°.odt" download="laboratorio 5°.odt">laboratorio 5°.odt</a><br><br>
+ <a href="C:\Users\Elena\Documents\scuola\2° superiore\web\laboratorio 5°.pdf" download="laboratorio 5°.pdf">laboratorio 5°.pdf</a><br><br>
+ <a href="C:\Users\Elena\Documents\scuola\2° superiore\web\laboratorio 5°.ods" download="laboratorio 5°.ods">laboratorio 5°.ods</a><br><br>
+ <a href="C:\Users\Elena\Documents\scuola\2° superiore\web\laboratorio 6°.odt" download="laboratorio 6°.odt">laboratorio 6°.odt</a><br><br>
+ <a href="C:\Users\Elena\Documents\scuola\2° superiore\web\laboratorio 6°.pdf" download="laboratorio 6°.pdf">laboratorio 6°.pdf</a><br><br>
+ <a href="C:\Users\Elena\Documents\scuola\2° superiore\web\laboratorio base.odt" download="laboratorio base.odt">laboratorio base.odt</a><br><br>
+ <a href="C:\Users\Elena\Documents\scuola\2° superiore\web\ricerca funzionamento gps.odt" download="ricerca funzionamento gps.odt">ricerca funzionamento gps.odt</a><br><br>
+ <a href="C:\Users\Elena\Documents\scuola\2° superiore\web\verifica.odt" download="verifica.odt">verifica.odt</a><br><br>
+ </div>
+</div>
+<div id="estivi">
+<div id="compiti_estivi">
+ <font size="5"><center>COMPITI ESTIVI</center></font><br><br>
+ <table>
+ <tr>
+ <th colspan="3">Italiano</th>
+ <th>Inglese</th>
+ </tr>
+ <tr>
+ <td><a href="C:\Users\Elena\Documents\scuola\2° superiore\web\20 parole.odt" download="20 parole.odt">20 parole.odt</a><br><br></td>
+ <td><a href="C:\Users\Elena\Documents\scuola\2° superiore\web\ariticolo 1°.odt" download="ariticolo 1°.odt">ariticolo 1&#176;.odt</a><br><br></td>
+ <td><a href="C:\Users\Elena\Documents\scuola\2° superiore\web\ariticolo 2°.odt" download="ariticolo 2°.odt">ariticolo 2&#176;.odt</a><br><br></td>
+ <td><a href="C:\Users\Elena\Documents\scuola\2° superiore\web\commento film.odt" download="commento film.odt">commento film.odt</a></td>
+ </tr>
+ <tr>
+ <td><a href="C:\Users\Elena\Documents\scuola\2° superiore\web\ariticolo 3°.odt" download="ariticolo 3°.odt">ariticolo 3&#176;.odt</a><br><br></td>
+ <td><a href="C:\Users\Elena\Documents\scuola\2° superiore\web\ariticolo 4°.odt" download="ariticolo 4°.odt">ariticolo 4&#176;.odt</a><br><br></td>
+ <td><a href="C:\Users\Elena\Documents\scuola\2° superiore\web\ariticolo 5°.odt" download="ariticolo 5°.odt">ariticolo 5&#176;.odt</a><br><br></td>
+ <td><a href="C:\Users\Elena\Documents\scuola\2° superiore\web\inglese tema.odt" download="inglese tema.odt">inglese tema.odt</a></td>
+ </tr>
+ <tr>
+ <td><a href="C:\Users\Elena\Documents\scuola\2° superiore\web\commento la mummia Conan Doyle.odt" download="commento la mummia Conan Doyle.odt">commento la mummia Conan Doyle.odt</a><br><br></td>
+ <td><a href="C:\Users\Elena\Documents\scuola\2° superiore\web\commento viaggio al centro delle terra Jules Verne.odt" download="commento viaggio al centro delle terra Jules Verne.odt">commento viaggio al centro delle terra Jules Verne.odt</a><br><br></td>
+ <td><a href="C:\Users\Elena\Documents\scuola\2° superiore\web\diario 1°.odt" download="diario 1°.odt">diario 1&#176;.odt</a><br><br></td>
+ <td><a href="C:\Users\Elena\Documents\scuola\2° superiore\web\my summer holidays.odt" download="my summer holidays.odt">my summer holidays.odt</a></td>
+ </tr>
+ <tr>
+ <td><a href="C:\Users\Elena\Documents\scuola\2° superiore\web\diario 2°.odt" download="diario 2°.odt">diario 2&#176;.odt</a><br><br></td>
+ <td><a href="C:\Users\Elena\Documents\scuola\2° superiore\web\scheda libro giovani nella letteratura del 900 1°.odt" download="scheda libro giovani nella letteratura del 900 1°.odt">scheda libro giovani nella letteratura del 900 1&#176;.odt</a><br><br></td>
+ <td><a href="C:\Users\Elena\Documents\scuola\2° superiore\web\scheda libro giovani nella letteratura del 900 2°.odt" download="scheda libro giovani nella letteratura del 900 2°.odt">scheda libro giovani nella letteratura del 900 2&#176;.odt</a><br><br></td>
+ <td></td>
+ </tr>
+ <tr>
+ <td><a href="C:\Users\Elena\Documents\scuola\2° superiore\web\scheda libro giovani nella letteratura del 900 3°.odt" download="scheda libro giovani nella letteratura del 900 3°.odt">scheda libro giovani nella letteratura del 900 3&#176;.odt</a><br><br></td>
+ <td><a href="C:\Users\Elena\Documents\scuola\2° superiore\web\scheda libro giovani nella letteratura del 900 4°.odt" download="scheda libro giovani nella letteratura del 900 4°.odt">scheda libro giovani nella letteratura del 900 4&#176;.odt</a><br><br></td>
+ <td><a href="C:\Users\Elena\Documents\scuola\2° superiore\web\scheda libro giovani nella letteratura del 900 5°.odt" download="scheda libro giovani nella letteratura del 900 5°.odt">scheda libro giovani nella letteratura del 900 5&#176;.odt</a><br><br></td>
+ <td></td>
+ </tr>
+ <tr>
+ <td><a href="C:\Users\Elena\Documents\scuola\2° superiore\web\scheda libro la mummia Conan Doyle.odt" download="scheda libro la mummia Conan Doyle.odt">scheda libro la mummia Conan Doyle.odt</a><br><br></td>
+ <td><a href="C:\Users\Elena\Documents\scuola\2° superiore\web\scheda libro viaggio al centro della terra Jules Verne.odt" download="scheda libro viaggio al centro della terra Jules Verne.odt">scheda libro viaggio al centro della terra Jules Verne.odt</a><br><br></td>
+ <td><a href="C:\Users\Elena\Documents\scuola\2° superiore\web\tutto.odt" download="tutto.odt">tutto.odt</a><br><br></td>
+ <td></td>
+ </tr>
+ </table>
+ </div>
+ </div>
+<div id="contatore">
+<font size="5">GIORNI ALLA FINE DELLA SCUOLA:</font><br><br>
+<script type="text/javascript">
+<!-- 
+setcountdown() 
+// end -->
+</script>
+</div>
+  </body>
+</html>
