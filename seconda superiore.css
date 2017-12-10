@@ -13,7 +13,7 @@ html {
 /* Navbar container */
 .navbar {
   overflow: hidden;
-  background-color: #190895;
+  background-color: #707070;
   font-family: Arial;
 }
 
@@ -45,7 +45,7 @@ html {
 
 /* Add a red background color to navbar links on hover */
 .navbar a:hover, .dropdown:hover .dropbtn {
-  background-color: #190895;
+  background-color: #707070;
 }
 
 /* Dropdown content (hidden by default) */
@@ -98,7 +98,7 @@ html {
   height: 6%;
   width: 75%;
   padding: 10px;
-  background-color: #FFAE00;
+  background-color: #BEBEBE;
   overflow: auto;
   border-radius: 5px;
   }
@@ -114,7 +114,7 @@ html {
   height: 85%;
   width: 75%;
   padding: 10px;
-  background-color: #FFAE00;
+  background-color: #BEBEBE;
   overflow: auto;
   border-radius: 5px;
   }
@@ -196,6 +196,10 @@ text-align: left;
   background-color: rgba(76, 175, 80, 0.0);
   overflow: auto;
   border-radius: 5px;
+  }
+  
+  #files a {
+  color: black;
   }
   
 a:link, a:visited {

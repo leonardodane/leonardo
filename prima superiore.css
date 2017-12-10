@@ -13,7 +13,7 @@ html {
 /* Navbar container */
 .navbar {
   overflow: hidden;
-  background-color: #190895;
+  background-color: #707070;
   font-family: Arial;
 }
 
@@ -45,7 +45,7 @@ html {
 
 /* Add a red background color to navbar links on hover */
 .navbar a:hover, .dropdown:hover .dropbtn {
-  background-color: #190895;
+  background-color: #707070;
 }
 
 /* Dropdown content (hidden by default) */
@@ -91,30 +91,30 @@ html {
   text-align: center;
   opacity: 1;
   font: Bold 25px Arial;
-  color: #ffffff;
+  color: black;
   position:absolute;
   top: 80px;
   left: 13%;
   height: 6%;
   width: 75%;
   padding: 10px;
-  background-color: #FFAE00;
+  background-color: #BEBEBE;
   overflow: auto;
   border-radius: 5px;
   }
   
   #files {
   text-align: center;
-  opacity: 0.9;
+  opacity: 1;
   font: Bold 25px Arial;
-  color: #ffffff;
+  color: black;
   position:absolute;
   top: 170px;
   left: 13%;
-  height: 105%;
+  height: 120%;
   width: 75%;
   padding: 10px;
-  background-color: #FFAE00;
+  background-color: #BEBEBE;
   overflow: auto;
   border-radius: 5px;
   }
@@ -144,7 +144,7 @@ html {
   position:absolute;
   top: 0px;
   left: 25%;
-  height: 90%;
+  height: 95%;
   width: 23%;
   padding: 10px;
   background-color: rgba(76, 175, 80, 0.0);
@@ -176,13 +176,17 @@ text-align: left;
   position:absolute;
   top: 0px;
   left: 75%;
-  height: 80%;
+  height: 95%;
   width: 23%;
   padding: 10px;
   background-color: rgba(76, 175, 80, 0.0);
   overflow: auto;
   border-radius: 5px;
   }
+  
+  #files a {
+  color: black;
+  } 
   
   #estivi {
  left:0%;
@@ -199,12 +203,12 @@ text-align: left;
   font: Bold 10px Arial;
   color: #ffffff;
   position:absolute;
-  top: 140%;
+  top: 155%;
   left: 13%;
   height: 65%;
   width: 75%;
   padding: 10px;
-  background-color: #FFAE00;
+  background-color: #BEBEBE;
   overflow: auto;
   border-radius: 5px;
   }
@@ -221,7 +225,7 @@ a:link, a:visited {
   font: Bold 20px Arial;
   color: #ffffff;
   position:absolute;
-  top: 215%;
+  top: 225%;
   left: 30%;
   height: 17%;
   width: 40%;
@@ -230,3 +234,7 @@ a:link, a:visited {
   overflow: auto;
   border-radius: 5px;
   }
+  
+  #compiti_estivi a {
+  color: black;
+  } 
