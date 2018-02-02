@@ -1,0 +1,32 @@
+<html>
+   <head>
+    <title>Operazioni con php</title>
+    <link href="20180113.css" rel="stylesheet" type="text/css"> 
+  </head>
+  <body>
+    <div id="Inserimento_Dati">
+    <center>Inserisci tre valori numerici e seleziona l'operazione da svolgere:</center>
+      <form action="20180113.php" method="post" >
+      <div>
+        <table style="width:50%" cellpadding="10">
+          <tr><td></td><td></td><tr>
+          <tr><td>Inserisci il primo<br> numero:</td><td style="width:50%"><input type="number" name="primo"></td>
+          <tr><td>inserisci il secondo<br> numero:</td><td><input type="number" name="secondo"></td>
+          <tr><td>inserisci il secondo<br> numero:</td><td><input type="number" name="terzo"></td>
+          <tr><td><br></td><td></td><tr>
+        </table>
+      </div>
+      <div id="operazione">
+        <table style="width:50%" cellpadding="10">
+          <tr><td><input type="radio" name="operazione" value="addizione" checked='checked' id="radio"></td><td>Addiziona i tre valori inseriti</td><tr>
+          <tr><td><input type="radio" name="operazione" value="moltiplicazione" id="radio"></td><td>Moltiplica i tre valori inseriti</td><tr>
+          <tr><td><input type="radio" name="operazione" value="p2" id="radio"></td><td>Moltiplica il primo valore inserito con la somma del secondo e del terzo</td><tr>
+          <tr><td><input type="radio" name="operazione" value="p3" id="radio"></td><td>Somma i tre valori inseriti se il primo &egrave; maggiore di 0, altrimenti li moltiplica</td><tr>
+          <tr><td><input type="radio" name="operazione" value="p4" id="radio"></td><td>Somma i valori assoluti dei tre numeri inseriti</td><tr>
+        </table>
+      </div><br><br><br>
+      <input type="submit" name="invia" value="Calcola"><br><br> 
+      </form>
+    </div>
+  </body> 
+</html>

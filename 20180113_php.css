@@ -1,0 +1,29 @@
+html {
+  background: url(sfondo.jpg) no-repeat center center fixed;
+   -webkit-background-size: cover;
+   -moz-background-size: cover;
+   background-size: cover;
+  }
+  
+  a {
+  text-decoration:none;
+  font: Bold 15px Arial;
+  }
+  
+  #numero {
+  text-align: center;
+  opacity: 1;
+  font: bold 20px Arial;
+  color: #000000;
+  position:absolute;
+  top: 0%;
+  left: 20%;
+  height: 98.5%;
+  width: 60%;
+  padding: 5px;
+  background-color: #BFBFBF;
+  overflow: hidden;
+  border: solid;
+  border-color:  #000000;
+  border-width: 0px 2px 0px 2px;
+  }}
